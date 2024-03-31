@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    console.log(user);
+    // console.log(user);
     // updating the user status in db and removing the token and expiry date
     user.isVerified = true;
     user.verifyToken = undefined;
