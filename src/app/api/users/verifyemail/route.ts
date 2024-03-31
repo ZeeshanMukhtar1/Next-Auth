@@ -12,11 +12,9 @@ export async function POST(request: NextRequest) {
     const { token } = reqBody;
     console.log(token);
     // find ing the token in my db with its expiry date
-    const user = await User.findOneAndUpdate({
+    const user = await User.findOne({
       verifyToken: token,
-      verifyTokenExpiry: {
-        $gt: Date.now(),
-      },
+      verifyTokenExpiry: { $gt: Date.now() },
     });
 
     // validation if the token is not found
