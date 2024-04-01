@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Signuppage() {
   const router = useRouter();
@@ -94,6 +95,12 @@ export default function Signuppage() {
           {loading ? 'Signing Up...' : 'Signup'}
         </button>
       </form>
+      {/* link to profile page */}
+      <div className="mt-4 text-center">
+        <Link href="/login" className="text-blue-500 hover:underline">
+          have an account? Login
+        </Link>
+      </div>
       <Toaster />
     </div>
   );

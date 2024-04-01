@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Loginpage() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function Loginpage() {
     try {
       const response = await axios.post('/api/users/login', formData);
       setFormData({ email: '', password: '' });
-      router.push('/');
+      router.push('/profile');
       toast.success('Login successful');
     } catch (error: any) {
       if (error.response && error.response.data && error.response.data.error) {
@@ -80,6 +81,11 @@ export default function Loginpage() {
           {loading ? 'Logging In...' : 'Login'}
         </button>
       </form>
+      <div className="mt-4 text-center">
+        <Link href="/signup" className="text-blue-500 hover:underline">
+          Dont have an account? Signup
+        </Link>
+      </div>
       <Toaster />
     </div>
   );
