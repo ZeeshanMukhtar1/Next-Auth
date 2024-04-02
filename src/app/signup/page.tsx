@@ -95,10 +95,10 @@ export default function Signuppage() {
           {loading ? 'Signing Up...' : 'Signup'}
         </button>
       </form>
-      {/* link to profile page */}
       <div className="mt-4 text-center">
+        <span>have an account?</span> &nbsp;
         <Link href="/login" className="text-blue-500 hover:underline">
-          have an account? Login
+          Login
         </Link>
       </div>
       <Toaster />

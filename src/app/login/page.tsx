@@ -23,7 +23,7 @@ export default function Loginpage() {
     try {
       const response = await axios.post('/api/users/login', formData);
       setFormData({ email: '', password: '' });
-      router.push('/profile');
+      router.push('/');
       toast.success('Login successful');
     } catch (error: any) {
       if (error.response && error.response.data && error.response.data.error) {
@@ -82,8 +82,9 @@ export default function Loginpage() {
         </button>
       </form>
       <div className="mt-4 text-center">
+        <span>Dont have an Account?</span> &nbsp;
         <Link href="/signup" className="text-blue-500 hover:underline">
-          Dont have an account? Signup
+          Signup
         </Link>
       </div>
       <Toaster />

@@ -18,7 +18,6 @@ export default function verifyEmailPage() {
       seterror(false);
     } catch (error: any) {
       seterror(true);
-      console.error(error.response.data);
       toast.error('Error verifying email');
     }
   };
