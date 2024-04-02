@@ -2,17 +2,23 @@ import { NextURL } from 'next/dist/server/web/next-url';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
+  // configuring the path
   const path = request.nextUrl.pathname;
 
+  // setting up public paths
   const isPublichPath =
     path === '/login' || path === '/signup' || path === '/verifyemail';
 
+  // getting the token from the cookies
   const token = request.cookies.get('token')?.value || '';
+
+  // if the path is public and token is there it means user is logged in  ✅
   if (isPublichPath && token) {
     return NextResponse.redirect(new URL('/', request.url));
   }
+
+  // if the path is not public and token is not there it means user is not logged in ❌
   if (!isPublichPath && !token) {
     return NextResponse.redirect(new URL('/login', request.url));
   }

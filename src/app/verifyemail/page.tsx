@@ -53,6 +53,15 @@ export default function verifyEmailPage() {
           {token ? `${token}` : 'No token found'}
         </p>
 
+        <p>
+          <Link
+            className="text-blue-500 hover:underline text-center mx-auto"
+            href="/login"
+          >
+            Login to verify your email
+          </Link>
+        </p>
+
         {verified && (
           <div className="mb-4">
             <p className="mb-2">Your email has been verified</p>
